@@ -1,4 +1,5 @@
 const ArrayDinosaur = [];
+const button = document.getElementById("btn");
 
 function Species(){
     this.species = name;
@@ -58,21 +59,20 @@ Object.assign(Human, Species);
 
 // Use IIFE to get human data from form
 (function getHumanData(){
-    const button = document.getElementById("btn");
-
-        button.addEventListener("click", (function()
+            button.addEventListener("click", (function()
         {
             let name = document.getElementById("name").value;
             let height = document.getElementById("height").value;
             let weight = document.getElementById("weight").value;
             const diet = document.getElementById("diet").value;
+
             //Creating and returning a human object
-            return new Human(name, weight, height, diet, image);
+            return human = new Human(name, weight, height, diet);
         }))
 })();
 
 // Create Dino Compare Method 1 for height
-Dinosaur.prototype.compareHeight = function(humanHeight){
+Dino.prototype.compareHeight = function(humanHeight){
     let a1 = Math.floor(Math.random() * (9 - 0));
 
     if (this.height > humanHeight) {
@@ -83,7 +83,7 @@ Dinosaur.prototype.compareHeight = function(humanHeight){
 }
 
 // Create Dino Compare Method 2
-Dinosaur.prototype.compareWeight = function(humanWeight){
+Dino.prototype.compareWeight = function(humanWeight){
     let a2 = Math.floor(Math.random() * (9 - 0));
 
     if (this.height > humanWeight) {
@@ -94,7 +94,7 @@ Dinosaur.prototype.compareWeight = function(humanWeight){
 }
     
 // Create Dino Compare Method 3
-Dinosaur.prototype.compareDiet = function(humanDiet){
+Dino.prototype.compareDiet = function(humanDiet){
     let a3 = Math.floor(Math.random() * (9 - 0)) + 0;
 
     if (this.diet.toLowerCase() == humanDiet.toLowerCase()) {
@@ -137,16 +137,17 @@ function creatingTiles() {
 
 // On button click, prepare and display infographic
 button.addEventListener('click', function() {
-    const human = createHumanObject();
-    appendData(human);
+    appendData(Human.human);
     ArrayDinosaur.map(dino => {
         if (dino.species) {
             dino.compareHeight(human.height);
             dino.compareWeight(human.weight);
             dino.compareDiet(human.diet);
+        } else {
+            console.log(Error)
         }
     });
-    createTiles();
+    creatingTiles();
 });
 
 // Remove form from screen 
