@@ -137,12 +137,11 @@ function creatingTiles() {
 
 // On button click, prepare and display infographic
 button.addEventListener('click', function() {
-    appendData(Human.human);
     ArrayDinosaur.map(dino => {
         if (dino.species) {
-            dino.compareHeight(human.height);
-            dino.compareWeight(human.weight);
-            dino.compareDiet(human.diet);
+            dino.compareHeight(Human.human.height);
+            dino.compareWeight(Human.human.weight);
+            dino.compareDiet(Human.human.diet);
         } else {
             console.log(Error)
         }
