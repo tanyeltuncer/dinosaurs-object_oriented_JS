@@ -1,5 +1,16 @@
-const ArrayDinosaur = [];
+
 const button = document.getElementById("btn");
+const ArrayDinosaur = [];
+
+// Application, wait for DOM to be loaded if we're looking for specific elements - it is more efficient to start after
+document.addEventListener("DOMContentLoaded", function(event) {
+    //Try to test if it is working or not (result: worked)
+    //console.log("DOM fully loaded and parsed");
+
+    //Starting the fetch method function for loading the JSON
+    fetchingData();
+});
+
 
 function Species(){
     this.species = name;
@@ -21,8 +32,10 @@ function Dino(name, weight, height, diet, location, time, fact) {
 Object.assign(Dino, Species);
 
 
-// Fetching the information from JSON
-fetch('./dino.json')
+//not possible to test it locally, you can check it with testing it on a server
+
+function fetchingData(){
+fetch('dino.json')
   .then((response) => {
     return response.json()
   })
@@ -34,6 +47,7 @@ fetch('./dino.json')
     // Error 
     console.log("Error - Data can't be found!")
   })
+}
 
 function appendData(data){
     //map() is generating arrays for the object 
@@ -46,7 +60,7 @@ function appendData(data){
         `I belong to ${dino.where}.`, 
         `My when value is ${dino.when}.`)
     ) 
-}
+};
 
 // Create Human Object
 function Human(name, height, weight, diet) {
@@ -78,7 +92,7 @@ Dino.prototype.compareHeight = function(humanHeight){
     if (this.height > humanHeight) {
         this.fact[this.a1] = `This dinosaur was ${(this.height - humanHeight).toFixed(2)} cm taller than you`;
     } else {
-        this.fact[this.a1] = `This dinosaur was ${((humanHeight - this.height) / 12).toFixed(2)} ft shorter than you`;
+        this.fact[this.a1] = `This dinosaur was ${((humanHeight - this.height) / 12).toFixed(2)} cm shorter than you`;
     }
 }
 
