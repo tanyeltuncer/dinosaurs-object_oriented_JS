@@ -1,8 +1,7 @@
 
 const button = document.getElementById("btn");
-const ArrayDinosaur = [];
 
-//JSON 
+//JSON with dino data
 const dinosaurs = {
     "Dinos": [
         {
@@ -81,23 +80,6 @@ const dinosaurs = {
 };
 
 
-// Application, wait for DOM to be loaded if we're looking for specific elements - it is more efficient to start after
-document.addEventListener("DOMContentLoaded", function(event) {
-    //Try to test if it is working or not (result: worked)
-    console.log("DOM fully loaded and parsed");
-
-    //Starting the fetch method function for loading the JSON
-    //fetchingData();
-});
-
-
-function Species(){
-    this.species = name;
-    this.weight = weight;
-    this.height = height;
-    this.diet = diet;
-}
-
 // Create Dino Constructor
 function Dino(name, weight, height, diet, location, time, fact) {
     this.species = name;
@@ -110,25 +92,6 @@ function Dino(name, weight, height, diet, location, time, fact) {
     this.image = "images/" + this.species.toLowerCase() + ".png";
 }
 
-//inheritance
-Object.assign(Dino, Species);
-
-
-/*not possible to test it locally, you can check it with testing it on a server
-function fetchingData(){
-fetch('dino.json')
-  .then((response) => {
-    return response.json()
-  })
-  // Create Dino Objects by the appendData function
-  .then(function(data) {
-      appendData(data);
-  })
-  .catch((err) => {
-    // Error 
-    console.log("Error - Data can't be found!")
-  })
-}*/
 
 //converting JSON into JS Object
 //map() is generating array with the objects
@@ -155,9 +118,6 @@ function Human(name, height, weight, diet) {
     this.image = "images/human.png"
     this.fact = "Did you know that the humans are 300.000 years old?"
 }
-
-//inheritance
-Object.assign(Human, Species);
 
 
 //Use IIFE to get human data from form
@@ -247,8 +207,6 @@ function creatingTiles() {
             dinoImage.alt = (dino.species) ? dino.species : dino.name;
             gridItem.appendChild(dinoImage);
         
-            let factsArray = dino.fact;
-
             let dinoFact = document.createElement("p");
             if (dino.species == "Pigeon") {
                 dinoFact.innerHTML = dinoObject[8].fact;
@@ -278,15 +236,6 @@ function hiding(){
 };
 
 function show_elements(){
-    document.getElementById("grid-show").style.display = "grid";
-    document.getElementById("btn-full").style.display = "grid";
+    document.getElementById("grid-show").style.display = "grid"
 };
 
-function backToForm(){
-    document.getElementById("dino-compare").style.display = "grid";
-    document.getElementById("btn-full").style.display = "none";
-    document.getElementById("grid-show").style.display = "none";
-
-    deletingTiles();
-
-};
