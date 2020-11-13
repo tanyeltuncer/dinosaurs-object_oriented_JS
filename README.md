@@ -7,6 +7,10 @@
 #### How it should look:
 ![grafik](https://user-images.githubusercontent.com/58187568/99046236-c37af400-2592-11eb-8ef0-d8fe41e8531e.png)
 
+![grafik](https://user-images.githubusercontent.com/58187568/99121065-3a98a280-25fc-11eb-8d93-088ebb7ccb6a.png)
+![grafik](https://user-images.githubusercontent.com/58187568/99121120-52702680-25fc-11eb-9f4d-00010bc878df.png)
+![grafik](https://user-images.githubusercontent.com/58187568/99121177-6a47aa80-25fc-11eb-941c-113263708e05.png)
+
 #### Description:
 I will be building an infographic that is derived from data that is provided, as well as user input data. Object-oriented javascript is great for working with complex data, but it’s not of much use without an interface to interact with. I will be pulling in information from a form and using it to complete an array of objects that will then be appended back to the DOM. 
 
